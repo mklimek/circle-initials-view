@@ -58,20 +58,19 @@ All available attributes are listed [here](https://github.com/mklimek/circle-ini
 
 You can also add it programmatically:
 ```java
-CircleInitialsView circleInitialsView = new CircleInitialsView(this, Color.LTGRAY, 15, Color.DKGRAY, "Kasia Kowalska");
+CircleInitialsView circleView = new CircleInitialsView(this, Color.LTGRAY, 15, Color.DKGRAY, "Kasia Kowalska");
 
 LinearLayout ll = (LinearLayout) findViewById(R.id.container);
-ll.addView(circleInitialsView);
+ll.addView(circleView);
 
-LinearLayout.LayoutParams p = (LinearLayout.LayoutParams) circleInitialsView.getLayoutParams();
+LinearLayout.LayoutParams p = (LinearLayout.LayoutParams) circleView.getLayoutParams();
 p.width = p.height = 50;
-circleInitialsView.setLayoutParams(p);
-});
+circleView.setLayoutParams(p);
 ```
 
 and call `setOnClickListener` and do whatever you need for instance change properties by setters:
 ```java
-circleInitialsView.setOnClickListener(new View.OnClickListener() {
+circleView.setOnClickListener(new View.OnClickListener() {
     private boolean avatar = false;
     @Override
     public void onClick(View v) {
@@ -83,5 +82,5 @@ circleInitialsView.setOnClickListener(new View.OnClickListener() {
         }
         avatar = !avatar;
     }
-        });
+});
 ```
