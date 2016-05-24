@@ -16,9 +16,9 @@ public class CircleInitialsView extends FrameLayout {
 
     private int backgroundColor;
     private int textColor;
-    private int avatar;
     private String text;
     private float textSize;
+    private int avatar = -1;
 
     private GradientDrawable drawable;
     private TextView tv;
@@ -128,7 +128,10 @@ public class CircleInitialsView extends FrameLayout {
     }
 
     private String changeTextToInitials(String text) {
-        if(text != null && text.length() >= 3){
+        if(text != null && text.length() > 0){
+            if(text.length() <=2){
+                return text;
+            }
             String[] split = text.split(" ");
             String result = String.valueOf(split[0].charAt(0));
             if(split.length >= 2){
