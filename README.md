@@ -54,6 +54,12 @@ Avatar:
  custom:avatar="@drawable/avatar" />
 ```
 
+Don't forget to add:
+```xml
+xmlns:custom="http://schemas.android.com/apk/res-auto"
+```
+in your root xml layout element.
+
 All available attributes are listed [here](https://github.com/mklimek/circle-initials-view/blob/master/circleinitialsview/src/main/res/values/attrs.xml) .
 
 You can also add it programmatically:
