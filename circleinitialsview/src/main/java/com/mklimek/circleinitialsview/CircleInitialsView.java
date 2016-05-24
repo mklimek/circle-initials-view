@@ -3,8 +3,10 @@ package com.mklimek.circleinitialsview;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -20,7 +22,7 @@ public class CircleInitialsView extends FrameLayout {
     private float textSize;
     private int avatar = -1;
 
-    private GradientDrawable drawable;
+    private GradientDrawable gradientDrawable;
     private TextView tv;
 
     public CircleInitialsView(Context context, int avatarResourceId) {
@@ -46,7 +48,7 @@ public class CircleInitialsView extends FrameLayout {
 
     public void setBackgroundColor(int backgroundColor){
         this.backgroundColor = backgroundColor;
-        drawable.setColor(this.backgroundColor);
+        gradientDrawable.setColor(this.backgroundColor);
         makeTextViewVisible();
     }
 
@@ -95,7 +97,7 @@ public class CircleInitialsView extends FrameLayout {
 
     private void makeTextViewVisible() {
         setBackgroundResource(0);
-        setBackground(drawable);
+        setBackground(gradientDrawable);
         tv.setVisibility(View.VISIBLE);
     }
 
@@ -144,9 +146,23 @@ public class CircleInitialsView extends FrameLayout {
     }
 
     private void addChildren(Context context){
-        drawable = (GradientDrawable) context.getResources().getDrawable(R.drawable.circle);
-        drawable.setColor(backgroundColor);
-        setBackground(drawable);
+        Drawable drawable;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            drawable = context.getResources().getDrawable(R.drawable.circle, context.getTheme());
+        } else{
+            drawable = context.getResources().getDrawable(R.drawable.circle);
+        }
+        Log.d("CircleInitialsView", "drawable is " + drawable.getClass().getSimpleName());
+        if(drawable instanceof GradientDrawable){
+            gradientDrawable = (GradientDrawable) drawable;
+            gradientDrawable.setColor(backgroundColor);
+            setBackground(gradientDrawable);
+        } else{
+            gradientDrawable = new GradientDrawable();
+            gradientDrawable.setShape(GradientDrawable.OVAL);
+            gradientDrawable.setColor(backgroundColor);
+            setBackground(gradientDrawable);
+        }
 
         tv = new TextView(context);
         tv.setText(text);
