@@ -14,11 +14,11 @@ import android.widget.TextView;
 
 public class CircleInitialsView extends FrameLayout {
 
-    private int backgroundColor = Color.BLACK;
-    private int textColor = Color.WHITE;
-    private int avatar = -1;
+    private int backgroundColor;
+    private int textColor;
+    private int avatar;
     private String text;
-    private float textSize = 15;
+    private float textSize;
 
     private GradientDrawable drawable;
     private TextView tv;
@@ -107,14 +107,16 @@ public class CircleInitialsView extends FrameLayout {
     private void applyAttrs(Context context, AttributeSet attrs){
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CircleInitialsView, 0, 0);
         try {
-            backgroundColor = a.getColor(R.styleable.CircleInitialsView_backgroundColor, -1);
-            textColor = a.getColor(R.styleable.CircleInitialsView_textColor, -1);
+            backgroundColor = a.getColor(R.styleable.CircleInitialsView_backgroundColor, Color.WHITE);
+            textColor = a.getColor(R.styleable.CircleInitialsView_textColor, Color.BLACK);
             avatar = a.getResourceId(R.styleable.CircleInitialsView_avatar, -1);
             text = a.getString(R.styleable.CircleInitialsView_text);
             String textSizeString = attrs.getAttributeValue("http://schemas.android.com/apk/res-auto", "textSize");
             if(textSizeString != null) {
                 String split1 = textSizeString.split("sp")[0];
                 this.textSize = Float.valueOf(split1);
+            } else{
+                this.textSize = 15;
             }
             text = changeTextToInitials(text);
         } catch (Exception e){
