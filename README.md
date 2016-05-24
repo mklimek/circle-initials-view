@@ -69,7 +69,7 @@ circleInitialsView.setLayoutParams(p);
 });
 ```
 
-and set on click listener on it and change properties by setters:
+and call `setOnClickListener` and do whatever you need for instance change properties by setters:
 ```java
 circleInitialsView.setOnClickListener(new View.OnClickListener() {
     private boolean avatar = false;
@@ -79,7 +79,7 @@ circleInitialsView.setOnClickListener(new View.OnClickListener() {
         if(avatar){
             cw.setText("Mietek Szcześniak");
         } else{
-            cw.setAvatar(R.mipmap.circle3);
+            cw.setAvatar(R.drawable.avatar);
         }
         avatar = !avatar;
     }
