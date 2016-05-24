@@ -131,7 +131,7 @@ public class CircleInitialsView extends FrameLayout {
         if(text != null && text.length() >= 3){
             String[] split = text.split(" ");
             String result = String.valueOf(split[0].charAt(0));
-            if(split.length == 2){
+            if(split.length >= 2){
                 result += String.valueOf(split[1].charAt(0));
             }
             return result;
