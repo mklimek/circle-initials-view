@@ -15,6 +15,7 @@ allprojects {
 **Step 2**. Add the dependency
 ```gradle
 dependencies {
-	        compile 'com.github.mklimek:circle-initials-view:1.0'
+	        compile 'com.github.mklimek:circle-initials-view:$RELEASE_VERSION'
 	}
 ```
+$RELEASE_VERSION = takeTheMostRecent(https://github.com/mklimek/circle-initials-view/releases)
