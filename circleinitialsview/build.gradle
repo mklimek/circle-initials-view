@@ -19,5 +19,4 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    resourcePrefix 'circleInitialsView_'
 }
