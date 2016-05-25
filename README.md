@@ -33,7 +33,7 @@ Simple:
 <com.mklimek.circleinitialsview.CircleInitialsView
  android:layout_width="50dp"
  android:layout_height="50dp"
- custom:text="Marek Kowalski" />
+ custom:circleInitialsView_text="Marek Kowalski" />
 ```
 
 Custom colors:
@@ -41,9 +41,9 @@ Custom colors:
 <com.mklimek.circleinitialsview.CircleInitialsView
  android:layout_width="50dp"
  android:layout_height="50dp"
- custom:backgroundColor="#771175"
- custom:textColor="#48c192"
- custom:text="Adam Smith" />
+ custom:circleInitialsView_backgroundColor="#771175"
+ custom:circleInitialsView_textColor="#48c192"
+ custom:circleInitialsView_text="Adam Smith" />
 ```
 
 Avatar:
@@ -51,7 +51,7 @@ Avatar:
 <com.mklimek.circleinitialsview.CircleInitialsView
  android:layout_width="50dp"
  android:layout_height="50dp"
- custom:avatar="@drawable/avatar" />
+ custom:circleInitialsView_avatar="@drawable/avatar" />
 ```
 
 Don't forget to add:
@@ -70,7 +70,7 @@ LinearLayout ll = (LinearLayout) findViewById(R.id.container);
 ll.addView(circleView);
 
 LinearLayout.LayoutParams p = (LinearLayout.LayoutParams) circleView.getLayoutParams();
-p.width = p.height = 50;
+p.width = p.height = 100;
 circleView.setLayoutParams(p);
 ```
 
