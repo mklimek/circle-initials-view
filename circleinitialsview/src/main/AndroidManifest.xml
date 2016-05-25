@@ -3,6 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.mklimek.circleinitialsview">
 
-    <application android:label="@string/circleInitialsView_app_name" tools:replace="label" />
+    <application android:label="@string/circleInitialsView_app_name" tools:replace="android:label" />
 
 </manifest>
