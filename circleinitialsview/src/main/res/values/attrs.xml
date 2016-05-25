@@ -1,9 +1,9 @@
 <resources>
-    <declare-styleable name="CircleInitialsView">
-        <attr name="avatar" format="reference" />
-        <attr name="backgroundColor" format="color" />
-        <attr name="textColor" format="color" />
-        <attr name="text" format="string" />
-        <attr name="textSize" format="string" />
+    <declare-styleable name="circleInitialsView_attrs">
+        <attr name="circleInitialsView_avatar" format="reference" />
+        <attr name="circleInitialsView_backgroundColor" format="color" />
+        <attr name="circleInitialsView_textColor" format="color" />
+        <attr name="circleInitialsView_text" format="string" />
+        <attr name="circleInitialsView_textSize" format="string" />
     </declare-styleable>
 </resources>

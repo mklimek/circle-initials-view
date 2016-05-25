@@ -3,10 +3,8 @@ package com.mklimek.circleinitialsview;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -107,12 +105,12 @@ public class CircleInitialsView extends FrameLayout {
     }
 
     private void applyAttrs(Context context, AttributeSet attrs){
-        TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CircleInitialsView, 0, 0);
+        TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.circleInitialsView_attrs, 0, 0);
         try {
-            backgroundColor = a.getColor(R.styleable.CircleInitialsView_backgroundColor, Color.WHITE);
-            textColor = a.getColor(R.styleable.CircleInitialsView_textColor, Color.BLACK);
-            avatar = a.getResourceId(R.styleable.CircleInitialsView_avatar, -1);
-            text = a.getString(R.styleable.CircleInitialsView_text);
+            backgroundColor = a.getColor(R.styleable.circleInitialsView_attrs_circleInitialsView_backgroundColor, Color.WHITE);
+            textColor = a.getColor(R.styleable.circleInitialsView_attrs_circleInitialsView_textColor, Color.BLACK);
+            avatar = a.getResourceId(R.styleable.circleInitialsView_attrs_circleInitialsView_avatar, -1);
+            text = a.getString(R.styleable.circleInitialsView_attrs_circleInitialsView_text);
             String textSizeString = attrs.getAttributeValue("http://schemas.android.com/apk/res-auto", "textSize");
             if(textSizeString != null) {
                 String split1 = textSizeString.split("sp")[0];
@@ -146,24 +144,10 @@ public class CircleInitialsView extends FrameLayout {
     }
 
     private void addChildren(Context context){
-        Drawable drawable;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            drawable = context.getResources().getDrawable(R.drawable.circle, context.getTheme());
-        } else{
-            drawable = context.getResources().getDrawable(R.drawable.circle);
-        }
-        Log.d("CircleInitialsView", "drawable is " + drawable.getClass().getSimpleName());
-        if(drawable instanceof GradientDrawable){
-            gradientDrawable = (GradientDrawable) drawable;
-            gradientDrawable.setColor(backgroundColor);
-            setBackground(gradientDrawable);
-        } else{
-            gradientDrawable = new GradientDrawable();
-            gradientDrawable.setShape(GradientDrawable.OVAL);
-            gradientDrawable.setColor(backgroundColor);
-            setBackground(gradientDrawable);
-        }
-
+        gradientDrawable = new GradientDrawable();
+        gradientDrawable.setShape(GradientDrawable.OVAL);
+        gradientDrawable.setColor(backgroundColor);
+        setBackground(gradientDrawable);
         tv = new TextView(context);
         tv.setText(text);
         tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
