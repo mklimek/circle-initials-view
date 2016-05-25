@@ -24,7 +24,7 @@ dependencies {
 	        compile 'com.github.mklimek:circle-initials-view:$RELEASE_VERSION'
 	}
 ```
-$RELEASE_VERSION = takeTheMostRecent(https://github.com/mklimek/circle-initials-view/releases)
+$RELEASE_VERSION = takeTheMostRecent(https://jitpack.io/#mklimek/circle-initials-view)
 
 # Using
 
